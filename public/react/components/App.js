@@ -10,6 +10,7 @@ export const App = (props) => {
   const [sauces, setSauces] = useState([]);
   const [items, setItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [newItem, setItem] = useState(null);
 
   async function fetchSauces(){
     try {
@@ -31,9 +32,20 @@ export const App = (props) => {
     }
   }
 
+  async function addItem() {
+    try {
+      const response = await fetch(`${apiURL}/items/:id`);
+      const newItem = await response.json();
+      setItem(newItem)
+    } catch(error) {
+      next(error)
+    }
+  }
+
   useEffect(() => {
     fetchSauces();
     fetchItems();
+    addItem();
   }, []);
 
  
