@@ -12,7 +12,6 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-<<<<<<< HEAD
 
 // GET all /items 
 router.get('/', async (req, res, next) => {
@@ -28,21 +27,10 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     try{
         const item = await Item.findByPk(req.params.id)
-        res.send(items);
+        res.send(item);
     } catch (error) {
         next (error); 
     }
 })
-=======
-router.post('/', async (req, res) => {
-  try {
-      const newItem = await Item.create(req.body);
-      res.status(201).json({ message: 'Item added successfully' });
-  } catch (error) {
-      res.status(400).json({ message: 'Error adding item' });
-  }
-}
-);
->>>>>>> ce23d1e114d2edfa51720355582ad3203d001d28
 
 module.exports = router
