@@ -9,4 +9,4 @@ export const Item = (props) => {
     <input type = {string} value = {props.item.body} ></input>
   </>
 } 
-	
+

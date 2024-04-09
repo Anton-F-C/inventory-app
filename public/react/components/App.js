@@ -40,7 +40,7 @@ export const App = (props) => {
       const newItem = await response.json();
       setItem(newItem)
     } catch(error) {
-      next(error)
+      console.log("error")
     }
   }
 
