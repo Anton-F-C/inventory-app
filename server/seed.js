@@ -18,13 +18,7 @@ const seed = async () => {
     console.error(error)
   }
 
-  try {
-    await sequelize.sync({ force: true })
-    await Promise.all(items.map((item) => Item.create(item)))
-    console.log('db populated!')
-  } catch (error) {
-    console.error(error)
-  }
+ 
 }
 
 seed()
