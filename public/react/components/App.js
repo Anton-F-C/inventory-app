@@ -32,9 +32,11 @@ export const App = (props) => {
     }
   }
 
-  async function addItem() {
+  async function addItem(itemsData) {
     try {
-      const response = await fetch(`${apiURL}/items`);
+      const response = await fetch(`${apiURL}/items`, {
+        method: POST, 
+        body: JSON.stringify(itemsData), });
       const newItem = await response.json();
       setItem(newItem)
     } catch(error) {
