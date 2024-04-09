@@ -1,32 +1,17 @@
 const { Sequelize } = require('sequelize')
-const { db, DataTypes } = require('../db')
+const { sequelize } = require('../db')
 
-const Sauce = db.define('sauces', {
+const Sauce = sequelize.define('sauces', {
   name: Sequelize.STRING,
   image: Sequelize.STRING,
 })
 
-const Item = db.define('item', {
-  Name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  Description: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
-  Price: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  Category: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  Image: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
+const Item = sequelize.define('items', {
+  name: Sequelize.STRING,
+  price: Sequelize.INTEGER,
+  description: Sequelize.STRING,
+  category: Sequelize.STRING,
+  image: Sequelize.STRING,
 })
 
 module.exports = {
