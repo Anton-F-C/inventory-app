@@ -32,6 +32,7 @@ export const App = (props) => {
     }
   }
 
+
   async function addItem(itemsData) {
     try {
       const response = await fetch(`${apiURL}/items`, {
@@ -43,6 +44,7 @@ export const App = (props) => {
       console.log("error")
     }
   }
+
 
   useEffect(() => {
     fetchSauces();
