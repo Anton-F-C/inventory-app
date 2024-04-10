@@ -98,20 +98,6 @@ export const App = (props) => {
           )}
         </div>
       )}
-      <div>
-        <form onSubmit={handleSubmit}>
-          {' '}
-          <label>
-            {' '}
-            New Item:{' '}
-            <input
-              type='string'
-              value={newItem}
-              onChange={(e) => setItem(e.target.value)}
-            />
-          </label>{' '}
-        </form>
-      </div>
       <Form />
     </main>
   )
