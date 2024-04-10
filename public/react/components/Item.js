@@ -8,7 +8,7 @@ export const Item = (props) => {
     <button> Add Item </button>
 
     <input type = {string} value = {props.item.body} ></input>
-    <input type = "string" value={props.item.body}/
-  </>
+    <input type = "string" value={props.item.body}/>
+    </>
 } 
 
