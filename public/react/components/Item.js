@@ -23,10 +23,9 @@ export const Item = (props) => {
       console.error(error)
     }
   }
+}
 
- };
-
-  return ( 
+return (
   <>
     <h3>{props.item.name}</h3>
     <img src={props.item.image} alt={props.item.name} />
@@ -34,55 +33,23 @@ export const Item = (props) => {
 
     <form onSubmit={handleSubmit}>
       <input
-      type="text"
-      value={newItem.name}
-      onChange={(e) => setNewItem({...newItem, name: e.target.value })}
+        type='text'
+        value={newItem.name}
+        onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
       />
       <input
-      type="text"
-      value={newItem.image}
-      onChange={(e) => setNewItem({...newItem, image: e.target.value })}
+        type='text'
+        value={newItem.image}
+        onChange={(e) => setNewItem({ ...newItem, image: e.target.value })}
       />
       <input
-      type="text"
-      value={newItem.body}
-      onChange={(e) => setNewItem({...newItem, body: e.target.value })}
+        type='text'
+        value={newItem.body}
+        onChange={(e) => setNewItem({ ...newItem, body: e.target.value })}
       />
 
-    <input type = {string} value = {props.item.body} ></input>
-    <input type = "string" value={props.item.body}/>
+      <input type={string} value={props.item.body}></input>
+      <input type='string' value={props.item.body} />
     </form>
   </>
-
-
-  return (
-    <>
-      <h3>{props.item.name}</h3>
-      <img src={props.item.image} alt={props.item.name} />
-      <button> Add Item </button>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          type='text'
-          value={newItem.name}
-          onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
-        />
-        <input
-          type='text'
-          value={newItem.image}
-          onChange={(e) => setNewItem({ ...newItem, image: e.target.value })}
-        />
-        <input
-          type='text'
-          value={newItem.body}
-          onChange={(e) => setNewItem({ ...newItem, body: e.target.value })}
-        />
-
-        <input type={string} value={props.item.body}></input>
-        <input type='string' value={props.item.body} />
-
-        <button type='submit'> Add Item </button>
-      </form>
-    </>
-  )
-}
+)
