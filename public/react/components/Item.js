@@ -35,8 +35,11 @@ export const Item = (props) => {
       value={newItem.name}
       onChange={(e) => setNewItem({...newItem, name: e.target.value })}
       />
-
-    
+      <input
+      type="text"
+      value={newItem.image}
+      onChange={(e) => setNewItem({...newItem, image: e.target.value })}
+      />
 
     <input type = {string} value = {props.item.body} ></input>
     <input type = "string" value={props.item.body}/>
