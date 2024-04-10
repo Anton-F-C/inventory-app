@@ -27,7 +27,20 @@ export const Item = (props) => {
   return <>
     <h3>{props.item.name}</h3>
     <img src={props.item.image} alt={props.item.name} />
+    <button> Add Item </button>
+
+    <form onSubmit={handleSubmit}>
+      <input
+      type="text"
+      value={newItem.name}
+      onChange={(e) => setNewItem({...newItem, name: e.target.value })}
+      />
+
+    
+
+    <input type = {string} value = {props.item.body} ></input>
+    <input type = "string" value={props.item.body}/>
+
+    </form>
   </>
-} 
-};
 };
