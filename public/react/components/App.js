@@ -47,6 +47,18 @@ export const App = (props) => {
   }
 
   //delete item function here
+  const deleteItem = async (itemId) => {
+    try {
+        const response = await fetch(`${apiURL}/items/${itemId}`, {
+            method: 'DELETE'
+        });
+        if (response.status === 204) {
+            setItems(items.filter(item => item.id !== itemId));
+        }
+    } catch (err) {
+        console.log("error deleting item! ", err)
+    }
+}
 
   useEffect(() => {
     fetchSauces()
@@ -98,6 +110,22 @@ export const App = (props) => {
           )}
         </div>
       )}
+
+      <div>
+        <form onSubmit={handleSubmit}>
+          {' '}
+          <label>
+            {' '}
+            New Item:{' '}
+            <input
+              type='string'
+              value={newItem}
+              onChange={(e) => setItem(e.target.value)}
+            />
+          </label>{' '}
+        </form>
+      </div>
+
       <Form />
     </main>
   )
