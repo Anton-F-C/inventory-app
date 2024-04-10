@@ -3,7 +3,7 @@ import React, { useState }  from 'react';
 export const Item = (props) => {
   const [newItem, setNewItem] = useState({ name: '', image: '' , body: '' });
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); 
     try{
       const response = await fetch('/api/items', {
