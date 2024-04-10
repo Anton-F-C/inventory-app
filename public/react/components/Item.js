@@ -49,14 +49,7 @@ export const Item = (props) => {
 
     <input type = {string} value = {props.item.body} ></input>
     <input type = "string" value={props.item.body}/>
-
-
-    </>
-} 
-
-
-    <button type="submit"> Add Item </button>
     </form>
   </>
-  );
-};
+  )
+}
