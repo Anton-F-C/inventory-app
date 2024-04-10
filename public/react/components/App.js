@@ -55,8 +55,9 @@ export const App = (props) => {
         if (response.status === 204) {
             setItems(items.filter(item => item.id !== itemId));
         }
-    } catch (err) {
-        console.log("error deleting item! ", err)
+        return response;
+    } catch (err) { 
+        console.log("error deleting item", err)
     }
 }
 
