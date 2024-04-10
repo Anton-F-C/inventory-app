@@ -12,8 +12,17 @@ export const Item = (props) => {
     }, body: JSON.stringify(newItem),
     });
 
-    
+    if (!response.ok) {
+      throw new Error('failed to add the item');
+    }
 
+    const data = await response.json();
+    console.log(data);
+    setNewItem({ name: '', image: '' , body: '' });
+  } catch (error) {
+    console.error(error);
+  }
+ };
 
   return <>
     <h3>{props.item.name}</h3>
@@ -21,4 +30,4 @@ export const Item = (props) => {
   </>
 } 
 };
-}
+};
