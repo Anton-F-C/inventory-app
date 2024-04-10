@@ -40,10 +40,15 @@ export const Item = (props) => {
       value={newItem.image}
       onChange={(e) => setNewItem({...newItem, image: e.target.value })}
       />
+      <input
+      type="text"
+      value={newItem.body}
+      onChange={(e) => setNewItem({...newItem, body: e.target.value })}
+      />
 
     <input type = {string} value = {props.item.body} ></input>
     <input type = "string" value={props.item.body}/>
-
+      
     </form>
   </>
 };
