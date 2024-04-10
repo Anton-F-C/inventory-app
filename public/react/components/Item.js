@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+// q- change props in line 4 to {item, deleteItem?}
 export const Item = (props) => {
   const [newItem, setNewItem] = useState({ name: '', image: '', body: '' })
 
@@ -30,33 +31,8 @@ export const Item = (props) => {
   <>
     <h3>{props.item.name}</h3>
     <img src={props.item.image} alt={props.item.name} />
-    <button> Add Item </button>
-    {/* delete button */}
-    <button onDelete = {deleteItem}> Delete Item </button>
+    <button onClick = {handleSubmit}> Add Item </button>
+    <button onClick={() => deleteItem(Item.id)}> Delete Item </button>
+</>
 
-    {/* <form onSubmit={handleSubmit}>
-      <input
-      type="text"
-      value={newItem.name}
-      onChange={(e) => setNewItem({...newItem, name: e.target.value })}
-      />
-      <input
-      type="text"
-      value={newItem.image}
-      onChange={(e) => setNewItem({...newItem, image: e.target.value })}
-      />
-      <input
-      type="text"
-      value={newItem.body}
-      onChange={(e) => setNewItem({...newItem, body: e.target.value })}
-      />
-
-    <input type = {string} value = {props.item.body} ></input>
-    <input type = "string" value={props.item.body}/>
-    </form>
-  </> */}
-  </>)
-
-
-  
-
+   )

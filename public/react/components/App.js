@@ -3,8 +3,14 @@ import { SaucesList } from './SaucesList'
 import { ItemsList } from './ItemsList'
 import { Item } from './Item'
 import Form from './Form'
+import React, { useState, useEffect } from 'react'
+import { SaucesList } from './SaucesList'
+import { ItemsList } from './ItemsList'
+import { Item } from './Item'
+import Form from './Form'
 
 // import and prepend the api url to any fetch calls
+import apiURL from '../api'
 import apiURL from '../api'
 
 export const App = (props) => {
@@ -36,7 +42,7 @@ export const App = (props) => {
   async function addItem(itemsData) {
     try {
       const response = await fetch(`${apiURL}/items`, {
-        method: POST,
+        method: 'POST',
         body: JSON.stringify(itemsData),
       })
       const newItem = await response.json()
@@ -46,30 +52,33 @@ export const App = (props) => {
     }
   }
 
-  //delete item function here
-  const deleteItem = async (itemId) => {
-    try {
-        const response = await fetch(`${apiURL}/items/${itemId}`, {
-            method: 'DELETE'
-        });
-        if (response.status === 204) {
-            setItems(items.filter(item => item.id !== itemId));
-        }
-        return response;
-    } catch (err) { 
-        console.log("error deleting item", err)
-    }
-}
+//   delete item function here
+//   const deleteItem = async (itemId) => {
+//     try {
+//         const response = await fetch(`${apiURL}/items/${itemId}`, {
+//             method: 'DELETE'
+//         });
+//         if (response.status === 204) {
+//             setItems(items.filter(item => item.id !== itemId));
+//         }
+//         return response;        
+//     } catch (err) {
+//         console.log("error deleting item! ", err)
+//     }
+// }
+
+
 
   useEffect(() => {
     fetchSauces()
     fetchItems()
-    addItem()
+    // addItem(itemsData)
   }, [])
 
   const [isOpen, setIsOpen] = useState(false)
   const handleClick = () => setIsOpen(!isOpen)
   console.log(props)
+  
 
   const handleItemClick = (item) => {
     setSelectedItem(item)
@@ -79,7 +88,7 @@ export const App = (props) => {
     <main>
       <h1>Sauce Store</h1>
       <h2>All things 🔥</h2>
-      <SaucesList sauces={sauces} />
+      <SaucesList sauces={sauces} /> 
       <h1 onClick={handleClick}>Items Store</h1>
       {isOpen && (
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -111,21 +120,24 @@ export const App = (props) => {
           )}
         </div>
       )}
-      <div>
+
+      {/* <div>
         <form onSubmit={handleSubmit}>
           {' '}
           <label>
             {' '}
             New Item:{' '}
             <input
-              type='string'
+              type='text'
               value={newItem}
               onChange={(e) => setItem(e.target.value)}
             />
           </label>{' '}
         </form>
-      </div>
+      </div> */}
+
       <Form />
+
     </main>
   )
 }
