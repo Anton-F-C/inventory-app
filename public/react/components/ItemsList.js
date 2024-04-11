@@ -3,7 +3,7 @@ import Item from './Item'
 
 export const ItemsList = ({ items, deleteItem, viewDetails, addItem }) => {
   return (
-    <ul>
+    <ul className='items-container'>
       {items.map((item, idx) => {
         return (
           <li key={idx}>
