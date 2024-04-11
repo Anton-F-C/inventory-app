@@ -18,7 +18,7 @@ const Form = ({ onSubmit }) => {
     event.preventDefault()
     onSubmit(formData)
   }
-}
+
 
 return (
   <form onSubmit={handleFormSubmit}>
@@ -62,5 +62,6 @@ return (
     <button type='submit'>Submit</button>
   </form>
 )
+}
 
 export default Form
