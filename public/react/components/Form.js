@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-const Form = ({ onSubmit }) => {
+const Form = ({ onSubmit, deleteItem, addItem, item }) => {
+  const [newItem, setNewItem] = useState({ name: '', image: '', body: '' })
   const [formData, setFormData] = useState({
     name: '',
     price: 0,
@@ -19,9 +20,14 @@ const Form = ({ onSubmit }) => {
     onSubmit(formData)
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setNewItem(newItem)
+  }
+
 
 return (
-  <form onSubmit={handleFormSubmit}>
+  <form className="form" onSubmit={handleFormSubmit} >
     <p>Name</p>
     <input
       name='name'
@@ -60,6 +66,8 @@ return (
       onChange= {(e)=>handleChange(e)}
     />
     <button type='submit'>Submit</button>
+    <button onClick={() => deleteItem(item.id)}> Delete Item </button>
+    <button onClick={() => addItem(item)}> Add Item </button>
   </form>
 )
 }

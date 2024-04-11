@@ -10,6 +10,7 @@ export const App = () => {
   const [sauces, setSauces] = useState([])
   const [items, setItems] = useState([])
   const [viewItemId, setViewedItemId] = useState(null)
+  const [newItem, setNewItem] = useState({ name: '', image: '', body: '' })
 
 // need to define a viewDetails function for the event handler to work 
   async function viewDetails(id) {
@@ -37,12 +38,14 @@ export const App = () => {
     }
 }
 
-// add item function 
+ 
+
 
 async function addItem(itemsData) {
   try {
     const response = await fetch(`${apiURL}/items`, {
       method: 'POST',
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(itemsData),
     })
     const newItem = await response.json()
@@ -87,6 +90,7 @@ async function addItem(itemsData) {
 
       <h1>All Items</h1>
       <ItemsList items={items} deleteItem={deleteItem} viewDetails={viewDetails} addItem={addItem}/>
+      <form onSubmit = {addItem}/>
     </main>
   )
 }
