@@ -1,11 +1,8 @@
-/* {
+* {
   margin: 0;
   box-sizing: border-box;
   background-color: rgb(223, 223, 223);
-  font-family: Arial, Helvetica, sans-serif; 
 }
-
-/* Center all items 
 body {
   display: flex;
   justify-content: center;
@@ -13,7 +10,6 @@ body {
   min-height: 100vh;
 }
 
-/* Style for each item 
 .item {
   background-color: white;
   border-radius: 10px;
@@ -24,15 +20,20 @@ body {
   text-align: center;
 }
 
+.item img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+}
+
 .items-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center items on the line */
-  /*align-items: start;  Align items to start on cross-axis 
+  justify-content: center;
   gap: 20px; 
 }
 
-/* Style for the form 
 form {
   background-color: white;
   border-radius: 10px;
@@ -42,7 +43,6 @@ form {
   width: 300px;
 }
 
-/* Style for buttons 
 button {
   background-color: #007BFF;
   color: white;
@@ -55,7 +55,6 @@ button {
   transition: background-color 0.3s ease;
 }
 
-/* Change button color on hover 
 button:hover {
   background-color: #0056b3;
-}  */
+}
