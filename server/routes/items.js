@@ -22,4 +22,32 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
+//DELETE item by id 
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const item = await Item.findByPk(req.params.id)
+
+    if (!item) {
+      return res.status(404).send('Item not found')
+    }
+    await item.destroy()
+
+    res.status(204).send()
+  } catch (error) {
+  
+    next(error)
+  }
+})
+
+// POST /item to add an item 
+router.post('/', async (req, res, next) => {
+  try {
+    const item = await Item.create(req.body)
+    res.status(201).json(item)
+  } catch (error) {
+    next(error)
+  }
+})
+
+
 module.exports = router
