@@ -66,7 +66,6 @@ return (
       onChange= {(e)=>handleChange(e)}
     />
     <button type='submit'>Submit</button>
-    <button onClick={() => deleteItem(item.id)}> Delete Item </button>
     <button onClick={() => addItem(item)}> Add Item </button>
   </form>
 )
