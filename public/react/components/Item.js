@@ -8,7 +8,7 @@ const Item = ({ item }) => {
       <p>Price: ${item.price}</p>
       <p>Category: {item.category}</p>
       <img src={item.image} alt={item.name} />
-      <button>View Details</button>{' '}
+      <button >View Details</button>{' '}
       {/* Add a button to view details of the item */}
     </div>
   )

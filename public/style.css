@@ -1,5 +1,61 @@
-* {
+/* {
   margin: 0;
   box-sizing: border-box;
   background-color: rgb(223, 223, 223);
+  font-family: Arial, Helvetica, sans-serif; 
 }
+
+/* Center all items 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Style for each item 
+.item {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center items on the line */
+  /*align-items: start;  Align items to start on cross-axis 
+  gap: 20px; 
+}
+
+/* Style for the form 
+form {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+}
+
+/* Style for buttons 
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 1em;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Change button color on hover 
+button:hover {
+  background-color: #0056b3;
+}  */
