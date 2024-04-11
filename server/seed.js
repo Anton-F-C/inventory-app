@@ -17,8 +17,6 @@ const seed = async () => {
   } catch (error) {
     console.error(error)
   }
-
- 
 }
 
 seed()

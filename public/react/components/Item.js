@@ -1,38 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-// q- change props in line 4 to {item, deleteItem?}
-export const Item = (props) => {
-  const [newItem, setNewItem] = useState({ name: '', image: '', body: '' })
+const Item = ({ item }) => {
+  return (
+    <div>
+      <h3>{item.name}</h3>
+      <p>{item.description}</p>
+      <p>Price: ${item.price}</p>
+      <p>Category: {item.category}</p>
+      <img src={item.image} alt={item.name} />
+      <button>View Details</button>{' '}
+      {/* Add a button to view details of the item */}
+      <button onClick={() => deleteItem(Item.id)}> Delete Item </button>
+    </div>
+  )
+}
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    try {
-      const response = await fetch('/api/items', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newItem),
-      })
-
-      if (!response.ok) {
-        throw new Error('failed to add the item')
-      }
-
-      const data = await response.json()
-      console.log(data)
-      setNewItem({ name: '', image: '', body: '' })
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
- };
-
-  return ( 
-  <>
-    <h3>{props.item.name}</h3>
-    <img src={props.item.image} alt={props.item.name} />
-    <button onClick = {handleSubmit}> Add Item </button>
-    <button onClick={() => deleteItem(Item.id)}> Delete Item </button>
-</>
-
-   )
+export default Item
