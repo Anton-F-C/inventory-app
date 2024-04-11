@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { SaucesList } from './SaucesList'
 import { ItemsList } from './ItemsList'
+import Form from './Form'
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api'
 
-export const App = () => {
+export const App = (props) => {
   const [sauces, setSauces] = useState([])
   const [items, setItems] = useState([])
-  const [viewItemId, setViewedItemId] = useState(null)
-  const [newItem, setNewItem] = useState({ name: '', image: '', body: '' })
+  // const [viewItemId, setViewedItemId] = useState(null)
+  // const [newItem, setNewItem] = useState({ name: '', image: '', body: '' })
+  const [selectedItem, setSelectedItem] = useState(null)
 
   // need to define a viewDetails function for the event handler to work
   async function viewDetails(id) {
@@ -78,19 +80,54 @@ export const App = () => {
     fetchItems()
   }, [])
 
-  return (
-    <main>
-      <h1>Sauce Store</h1>
-      <h2>All things 🔥</h2>
-      <SaucesList sauces={sauces} />
+  const [isOpen, setIsOpen] = useState(false)
+  const handleClick = () => setIsOpen(!isOpen)
+  console.log(props)
 
-      <h1>All Items</h1>
-      <ItemsList
-        items={items}
+  const handleItemClick = (item) => {
+    setSelectedItem(item)
+  }
+
+  return (
+    <main style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <h1 onClick={handleClick}>Items Store</h1>
+      <Form
+        onSubmit={addItem}
         deleteItem={deleteItem}
-        viewDetails={viewDetails}
+        addItem={addItem}
+        item={selectedItem}
       />
-      <Form onSubmit={addItem} />
+      {isOpen && (
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div class='items'>
+            <h4>Click on an item to see more details</h4>
+            {items.map((item, index) => (
+              <p key={index} onClick={() => handleItemClick(item)}>
+                {item.name}
+              </p>
+            ))}
+          </div>
+          {selectedItem && (
+            <div class='items-details'>
+              <h4>Details:</h4>
+              <p>{selectedItem.name}</p>
+              <p>{selectedItem.category}</p>
+              <p>{selectedItem.description}</p>
+              <p>${selectedItem.price}</p>
+              <img
+                src={selectedItem.image}
+                alt={selectedItem.name}
+                width='200px'
+                height='200'
+              />
+              {/* {Object.entries(selectedItem).map(([key, value]) => (
+            <p key={key}>{key}: {value}</p>
+          ))} */}
+            </div>
+          )}
+        </div>
+      )}
+      <Form addItem={addItem} />
     </main>
   )
 }

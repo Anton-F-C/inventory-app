@@ -8,7 +8,8 @@ const Item = ({ item, deleteItem, viewDetails, addItem }) => {
       <p>Price: ${item.price}</p>
       <p>Category: {item.category}</p>
       <img src={item.image} alt={item.name} />
-      <button onClick={()=> viewDetails(item.id) }>View Details</button>
+      <button >View Details</button>{' '}
+      <button onClick={() => deleteItem(item.id)}> Delete Item </button>
       {/* Add a button to view details of the item */}
       
     </div>
