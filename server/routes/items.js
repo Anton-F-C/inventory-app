@@ -49,5 +49,21 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+//PUT/ item/:id to update an item
+router.put('/:id', async (req, res, next) => {
+    try {
+        const item = await Item.findByPk(req.params.id)
+
+        if (!item) {
+            return res.status(404).send('Item not found')
+        }
+
+        await item.update(req.body)
+
+        res.json(item)
+    } catch (error) {
+        next(error)
+    }
+})
 
 module.exports = router
