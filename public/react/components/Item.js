@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Item = ({ item }) => {
+const Item = ({ item, deleteItem, viewDetails, addItem }) => {
   return (
     <div>
       <h3>{item.name}</h3>
@@ -8,9 +8,10 @@ const Item = ({ item }) => {
       <p>Price: ${item.price}</p>
       <p>Category: {item.category}</p>
       <img src={item.image} alt={item.name} />
-      <button>View Details</button>{' '}
+      <button onClick={()=> viewDetails(item.id) }>View Details</button>
       {/* Add a button to view details of the item */}
-      <button onClick={() => deleteItem(Item.id)}> Delete Item </button>
+      <button onClick={() => deleteItem(item.id)}> Delete Item </button>
+      <button onClick={() => addItem(item.id)}> Add Item </button>
     </div>
   )
 }

@@ -9,6 +9,48 @@ import apiURL from '../api'
 export const App = () => {
   const [sauces, setSauces] = useState([])
   const [items, setItems] = useState([])
+  const [viewItemId, setViewedItemId] = useState(null)
+
+// need to define a viewDetails function for the event handler to work 
+  async function viewDetails(id) {
+    try{
+      const response = await fetch(`${apiURL}/items${id}`)
+      const item = await response.json()
+
+        setViewedItemId(item)
+    } catch (err) {
+      console.log('Could not view item', err)
+    }
+  }
+
+  // need delete function here for event handler to work 
+  const deleteItem = async (itemId) => {
+    try {
+        const response = await fetch(`${apiURL}/items/${itemId}`, {
+            method: 'DELETE'
+        });
+        if (response.status === 204) {
+            setItems(items.filter(item => item.id !== itemId));
+        }
+    } catch (err) {
+        console.log("error deleting item! ", err)
+    }
+}
+
+// add item function 
+
+async function addItem(itemsData) {
+  try {
+    const response = await fetch(`${apiURL}/items`, {
+      method: 'POST',
+      body: JSON.stringify(itemsData),
+    })
+    const newItem = await response.json()
+    setItems(prevItems => [...prevItems, newItem])  
+  } catch (error) {
+    console.log('error')
+  }
+}
 
   async function fetchSauces() {
     try {
@@ -44,7 +86,7 @@ export const App = () => {
       <SaucesList sauces={sauces} />
 
       <h1>All Items</h1>
-      <ItemsList items={items} />
+      <ItemsList items={items} deleteItem={deleteItem} viewDetails={viewDetails} addItem={addItem}/>
     </main>
   )
 }
