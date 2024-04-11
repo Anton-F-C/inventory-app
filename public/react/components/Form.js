@@ -27,7 +27,7 @@ return (
       name='name'
       type='text'
       value={formData.name}
-      onChange={handleChange('name')}
+      onChange= {(e)=>handleChange(e)}
     />
 
     <p>Price</p>
@@ -35,7 +35,7 @@ return (
       name='price'
       type='number'
       value={formData.price}
-      onChange={handleChange('price')}
+      onChange= {(e)=>handleChange(e)}
     />
 
     <p>Description</p>
@@ -43,7 +43,7 @@ return (
       name='description'
       type='text'
       value={formData.description}
-      onChange={handleChange('description')}
+      onChange= {(e)=>handleChange(e)}
     />
 
     <p>Category</p>
@@ -51,13 +51,13 @@ return (
       name='category'
       type='text'
       value={formData.category}
-      onChange={handleChange('category')}
+      onChange= {(e)=>handleChange(e)}
     />
     <input
       name='imageUrl'
       type='text'
       value={formData.imageUrl}
-      onChange={handleChange('imageUrl')}
+      onChange= {(e)=>handleChange(e)}
     />
     <button type='submit'>Submit</button>
   </form>
