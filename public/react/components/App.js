@@ -94,7 +94,7 @@ async function addItem(itemsData) {
     
 
   return (
-    <main>
+    <main style={{ display: 'flex', justifyContent: 'space-between' }}>
  <h1 onClick={handleClick}>Items Store</h1>
  <Form onSubmit={addItem} deleteItem={deleteItem} addItem={addItem} item={selectedItem} />
       {isOpen && 
@@ -118,6 +118,7 @@ async function addItem(itemsData) {
           ))} */}
           </div>}
       </div>}
+    <Form addItem={addItem} />  
     </main>
   )
 }
