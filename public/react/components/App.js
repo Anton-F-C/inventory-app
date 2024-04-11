@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { SaucesList } from './SaucesList'
 import { ItemsList } from './ItemsList'
+import Form  from './Form'
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api'
@@ -93,7 +94,7 @@ async function addItem(itemsData) {
     
 
   return (
-    <main>
+    <main style={{ display: 'flex', justifyContent: 'space-between' }}>
  <h1 onClick={handleClick}>Items Store</h1>
       {isOpen && 
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -116,6 +117,7 @@ async function addItem(itemsData) {
           ))} */}
           </div>}
       </div>}
+    <Form addItem={addItem} />  
     </main>
   )
 }

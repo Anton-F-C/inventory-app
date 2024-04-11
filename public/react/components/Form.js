@@ -7,7 +7,7 @@ const Form = ({ onSubmit, deleteItem, addItem, item }) => {
     price: 0,
     description: '',
     category: '',
-    imageUrl: '',
+    imageUrl: ''
   })
 
   const handleChange = (event) => {
