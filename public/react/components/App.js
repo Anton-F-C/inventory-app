@@ -97,14 +97,14 @@ async function addItem(itemsData) {
  <h1 onClick={handleClick}>Items Store</h1>
       {isOpen && 
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <div>
+      <div class = "items" >
         <h4>Click on an item to see more details</h4>        
           {items.map((item, index) => (
           <p key={index} onClick={() => handleItemClick(item)}>{item.name}</p>
           ))}
         </div>
         {selectedItem && 
-        <div>
+        <div class = "items-details">
           <h4>Details:</h4>
           <p>{selectedItem.name}</p>
           <p>{selectedItem.category}</p>          
