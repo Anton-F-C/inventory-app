@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-export const Item = (props) => {
-  const [newItem, setNewItem] = useState({ name: '', image: '', body: '' })
-return (
-  <>
-    <h3>{props.item.name}</h3>
-    <img src={props.item.image} alt={props.item.name} />
-    <button> Add Item </button>
-  </>
-)
+const Item = ({ item }) => {
+  return (
+    <div>
+      <h3>{item.name}</h3>
+      <p>{item.description}</p>
+      <p>Price: ${item.price}</p>
+      <p>Category: {item.category}</p>
+      <img src={item.image} alt={item.name} />
+      <button>View Details</button>{' '}
+      {/* Add a button to view details of the item */}
+    </div>
+  )
 }
+
+export default Item

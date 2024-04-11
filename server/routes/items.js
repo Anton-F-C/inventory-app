@@ -12,34 +12,14 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-
-// GET all /items 
-router.get('/', async (req, res, next) => {
-    try{
-        const items = await Item.findAll()
-        res.send(items);
-    } catch (error) {
-        next(error); 
-    }
-})
-
-//GET one /item
+//GET one item by id
 router.get('/:id', async (req, res, next) => {
-    try{
-        const item = await Item.findByPk(req.params.id)
-        res.send(item);
-    } catch (error) {
-        next (error); 
-    }
+  try {
+    const item = await Item.findByPk(req.params.id)
+    res.json(item)
+  } catch (error) {
+    next(error)
+  }
 })
-//DELETE /item
-router.delete('/:id', async (req, res, next) => {
-    try{
-        const item = await Item.findByPk(req.params.id)
-        await item.destroy()
-        res.status(204).send()
-    } catch (error) {
-        next(error); 
-    }
-})
+
 module.exports = router
