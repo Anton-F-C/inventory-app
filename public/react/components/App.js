@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { SaucesList } from './SaucesList'
 import { ItemsList } from './ItemsList'
 import Form from './Form'
+import Item from './Item'
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api'
@@ -91,6 +92,7 @@ export const App = (props) => {
   return (
     <main style={{ display: 'flex', justifyContent: 'space-between' }}>
       <h1 onClick={handleClick}>Items Store</h1>
+      <h3 onClick={handleClick}> Click to view items </h3>
       <Form
         onSubmit={addItem}
         deleteItem={deleteItem}
@@ -114,6 +116,7 @@ export const App = (props) => {
               <p>{selectedItem.category}</p>
               <p>{selectedItem.description}</p>
               <p>${selectedItem.price}</p>
+              <button onClick={() => deleteItem(selectedItem.id)}> Delete Item </button>
               <img
                 src={selectedItem.image}
                 alt={selectedItem.name}
@@ -127,7 +130,7 @@ export const App = (props) => {
           )}
         </div>
       )}
-      <Form addItem={addItem} />
+      {/* <Form addItem={addItem} /> */}
     </main>
   )
 }
