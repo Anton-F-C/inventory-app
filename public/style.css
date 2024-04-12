@@ -1,7 +1,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  background:  linear-gradient(to bottom, #add8e6, #e0f7fa);
+  background: linear-gradient(to bottom, #add8e6, #e0f7fa);
 }
 body {
   font-family: Arial, sans-serif;
@@ -9,6 +9,7 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
 
 main {
   max-width: 1200px;
