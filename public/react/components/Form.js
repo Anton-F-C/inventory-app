@@ -58,6 +58,7 @@ const Form = ({ onSubmit, deleteItem, addItem, item }) => {
         value={formData.category}
         onChange={(e) => handleChange(e)}
       />
+      <p>Image URL</p>
       <input
         name='imageUrl'
         type='text'
