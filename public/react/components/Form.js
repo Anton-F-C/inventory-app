@@ -64,9 +64,12 @@ const Form = ({ onSubmit, deleteItem, addItem, item }) => {
         type='text'
         value={formData.imageUrl}
         onChange={(e) => handleChange(e)}
-      />
-      <button type='submit'>Submit</button>
-      <button onClick={() => addItem(item)}> Add Item </button>
+      />      
+      <button onClick={(e) => {
+        e.preventDefault();
+        addItem(formData);
+        setFormData({ name: '', price: 0, description: '', category: '', imageUrl: '' });
+        }}> Add Item </button>
     </form>
   )
 }
