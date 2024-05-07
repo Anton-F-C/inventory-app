@@ -17,7 +17,7 @@ resource "aws_s3_bucket" "my_bucket" {
 # Upload files to the S3 bucket
 resource "null_resource" "upload_files" {
   provisioner "local-exec" {
-    command = "aws s3 cp /Users/chris/Documents/Multiverse/inventory-app s3://${aws_s3_bucket.my_bucket.bucket}/inventory-app/ --recursive"
+    command = "aws s3 cp /Users/chrhorne/Documents/Multiverse/inventory-app/inventory-app.zip s3://${aws_s3_bucket.my_bucket.bucket}/inventory-app/"
   }
 }
 
