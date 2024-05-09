@@ -1,4 +1,8 @@
 node_modules/
+<<<<<<< HEAD
+=======
+.terraform/
+>>>>>>> deploy-app
 .DS_Store
 .vscode
 .idea
